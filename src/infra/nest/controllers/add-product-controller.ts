@@ -10,6 +10,6 @@ export class ProductNestController {
 
   @Post()
   addProduct(@Body() body: AddProductModel) {
-    return NestRouteAdapter.adapt(this.addProductController, { params: body });
+    return NestRouteAdapter.adapt(this.addProductController, { body });
   }
 }

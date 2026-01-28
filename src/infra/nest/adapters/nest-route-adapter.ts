@@ -1,5 +1,6 @@
 import { Controller } from '../../../presentation/protocols/controller/controller';
 import { HttpRequest } from '../../../presentation/protocols/http/http';
+import { HttpException } from '@nestjs/common';
 
 export class NestRouteAdapter {
   static async adapt(controller: Controller, request: HttpRequest) {
@@ -13,7 +14,10 @@ export class NestRouteAdapter {
     const httpResponse = await controller.handle(httpRequest);
 
     if (httpResponse.statusCode >= 400) {
-      throw new Error('Erro');
+      throw new HttpException(
+        httpResponse.body as Record<string, any>,
+        httpResponse.statusCode,
+      );
     }
 
     return httpResponse.body;
