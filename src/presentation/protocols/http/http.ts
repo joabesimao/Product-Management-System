@@ -1,10 +1,9 @@
 export interface HttpResponse {
   statusCode: number;
-  body: any;
+  body: unknown;
 }
 
-export interface HttpRequest {
-  body?: any;
-  headers?: any;
-  params?: any;
+export interface HttpRequest<TParams = any, TBody = any> {
+  body?: TBody;
+  params?: TParams;
 }

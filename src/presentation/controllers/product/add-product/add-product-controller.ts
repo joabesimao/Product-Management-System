@@ -8,6 +8,7 @@ export class AddProductController implements Controller {
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       const addNewProduct = await this.addProduct.add(httpRequest.body);
+
       return ok(addNewProduct);
     } catch (error) {
       return serverError(error);

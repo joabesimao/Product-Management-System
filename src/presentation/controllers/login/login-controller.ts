@@ -7,7 +7,9 @@ export class LoginController implements Controller {
   constructor(private readonly authentication: Authentication) {}
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const { email, password } = httpRequest.body;
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const accessToken = await this.authentication.auth({ email, password });
       if (!accessToken) {
         return unauthorized();

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { UpdateProduct } from '../../../../domain/usecases/product/update-product/update-product';
 import { ok, serverError } from '../../../helpers/http/http-helper';
 import { Controller } from '../../../protocols/controller/controller';
