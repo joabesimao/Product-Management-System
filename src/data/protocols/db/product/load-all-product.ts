@@ -4,4 +4,4 @@ export interface LoadAllProductRepository {
   loadAll(): Promise<Product[]>;
 }
 
-export const LoadAllProductRepositoryToken = Symbol('LoadAllProductRepository');
+export const LoadAllProductRepositoryToken = 'LoadAllProductRepositoryToken';
