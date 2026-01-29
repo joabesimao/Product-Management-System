@@ -5,7 +5,7 @@ import { AddProductController } from '../../../presentation/controllers/product/
 import type { AddProductModel } from '../../../domain/usecases/product/add-product/add-product';
 
 @Controller('products')
-export class ProductNestController {
+export class AddProductNestController {
   constructor(private readonly addProductController: AddProductController) {}
 
   @Post()

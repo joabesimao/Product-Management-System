@@ -3,7 +3,8 @@ export interface HttpResponse {
   body: unknown;
 }
 
-export interface HttpRequest<TParams = any, TBody = any> {
+export interface HttpRequest<TParams = any, TBody = any, TQuery = any> {
+  query?: TQuery;
   body?: TBody;
   params?: TParams;
 }
