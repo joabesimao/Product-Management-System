@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { UpdateProduct } from '../../../../domain/usecases/product/update-product/update-product';
 import { ok, serverError } from '../../../helpers/http/http-helper';
 import { Controller } from '../../../protocols/controller/controller';
@@ -8,7 +9,7 @@ export class UpdateProductController implements Controller {
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       const updateProduct = await this.updateProduct.update(
-        httpRequest.params.id,
+        httpRequest.body.id,
         httpRequest.body,
       );
       return ok(updateProduct);

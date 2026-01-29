@@ -8,6 +8,7 @@ export class LoadOneProductController implements Controller {
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       const loadOneProduct = await this.loadOneProduct.loadOne(
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
         httpRequest.params.id,
       );
       return ok(loadOneProduct);

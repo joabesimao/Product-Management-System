@@ -12,3 +12,5 @@ export interface AddProductModel {
 export interface AddProduct {
   add(client: AddProductModel): Promise<Product>;
 }
+
+export const AddProductToken = 'AddProductToken';

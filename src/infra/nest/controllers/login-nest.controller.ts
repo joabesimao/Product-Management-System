@@ -1,4 +1,4 @@
-import { Controller, Post, Body, UsePipes } from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
 import { LoginController } from '../../../presentation/controllers/login/login-controller';
 import { NestRouteAdapter } from '../adapters/nest-route-adapter';
 

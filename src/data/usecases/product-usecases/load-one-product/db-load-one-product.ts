@@ -1,10 +1,12 @@
+import { Inject, Injectable } from '@nestjs/common';
 import { Product } from '../../../../domain/models/product/product';
 import { LoadProductById } from '../../../../domain/usecases/product/load-one-product/load-one-product';
-import { LoadOneProductRepository } from '../../../protocols/db/product/load-one-product';
-
+import * as product from '../../../protocols/db/product';
+@Injectable()
 export class DbLoadOneProduct implements LoadProductById {
   constructor(
-    private readonly loadOneProductRepository: LoadOneProductRepository,
+    @Inject(product.LoadOneProductRepositoryToken)
+    private readonly loadOneProductRepository: product.LoadOneProductRepository,
   ) {}
   async loadOne(id: number): Promise<Product> {
     const loadOneProduct = await this.loadOneProductRepository.loadOne(id);

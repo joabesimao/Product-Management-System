@@ -1,13 +1,16 @@
+import { Inject, Injectable } from '@nestjs/common';
 import { Product } from '../../../../domain/models/product/product';
-import {
-  AddProduct,
-  AddProductModel,
-} from '../../../../domain/usecases/product/add-product/add-product';
-import { AddProductRepository } from '../../../protocols/db/product/add-product';
+import * as addProduct from '../../../../domain/usecases/product/add-product/add-product';
+import * as product from '../../../protocols/db/product';
+import { AddProduct } from '../../../../domain/usecases/product/add-product/add-product';
 
+@Injectable()
 export class DbAddProduct implements AddProduct {
-  constructor(private readonly addProductRepository: AddProductRepository) {}
-  async add(product: AddProductModel): Promise<Product> {
+  constructor(
+    @Inject(product.AddProductRepositoryToken)
+    private readonly addProductRepository: product.AddProductRepository,
+  ) {}
+  async add(product: addProduct.AddProductModel): Promise<Product> {
     if (product.stock <= 0) {
       throw new Error('Invalid price');
     }
