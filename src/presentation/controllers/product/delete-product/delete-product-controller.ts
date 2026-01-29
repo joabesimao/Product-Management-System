@@ -8,7 +8,7 @@ export class DeleteteProductController implements Controller {
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       const deleteProduct = await this.deleteProduct.delete(
-        httpRequest.params.id,
+        httpRequest.body.id,
       );
       return ok(deleteProduct);
     } catch (error) {

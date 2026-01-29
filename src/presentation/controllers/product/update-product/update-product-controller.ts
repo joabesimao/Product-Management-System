@@ -9,7 +9,7 @@ export class UpdateProductController implements Controller {
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       const updateProduct = await this.updateProduct.update(
-        httpRequest.params.id,
+        httpRequest.body.id,
         httpRequest.body,
       );
       return ok(updateProduct);
