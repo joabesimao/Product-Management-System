@@ -9,6 +9,8 @@ export class NestRouteAdapter {
       body: request.body,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       params: request.params,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      query: request.query,
     };
 
     const httpResponse = await controller.handle(httpRequest);
