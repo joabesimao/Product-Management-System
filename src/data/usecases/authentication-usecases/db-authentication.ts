@@ -28,6 +28,11 @@ export class DbAuthentication implements Authentication {
 
     if (!isValid) return null;
 
-    return this.jwtService.sign({ sub: account.id });
+    return this.jwtService.sign(
+      { sub: account.id },
+      {
+        secret: process.env.JWT_SECRET || 'dev-secret',
+      },
+    );
   }
 }
