@@ -28,6 +28,7 @@ export class ProductPostgresRepository
         description: product.description,
         price: product.price,
         stock: product.stock,
+        category: product.category,
         status: product.status,
       },
     });

@@ -13,6 +13,7 @@ model Product {
   description String
   price       Float
   stock       Int
+  category    String
   status      Boolean
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

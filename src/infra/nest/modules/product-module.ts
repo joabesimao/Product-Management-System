@@ -91,7 +91,6 @@ import { DeleteProductNestController } from '../controllers/delete-product-contr
     {
       provide: AddProductController,
       useFactory: (addProduct: any) => {
-        //console.log('FACTORY RECEBEU addProduct =', addProduct);
         return new AddProductController(addProduct);
       },
       inject: [AddProductToken],
