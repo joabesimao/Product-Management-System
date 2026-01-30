@@ -1,10 +1,11 @@
 import { Controller } from '../../protocols/controller/controller';
 import { HttpRequest, HttpResponse } from '../../protocols/http/http';
-import { Authentication } from '../../../domain/usecases/authentication/authentication';
 import { serverError, unauthorized, ok } from '../../helpers/http/http-helper';
-
+import { DbAuthentication } from '../../../data/usecases/authentication-usecases/db-authentication';
+import { Injectable } from '@nestjs/common';
+@Injectable()
 export class LoginController implements Controller {
-  constructor(private readonly authentication: Authentication) {}
+  constructor(private readonly authentication: DbAuthentication) {}
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
